@@ -15,14 +15,11 @@ class String
   end
 
   def count_sentences
-    delimiters = ['.','!','?']
-    all = self.split(Regexp.union(delimiters))
-    if self == "This, well, is a sentence. This is too!! And so is this, I think? Woo..."
-       all = 4
-       return all
-    else
-      return all.count
-    end
+    
+    self.split(/[.]|[?]|[!]/).reject { |c| c.empty? }
+.count
+    
+
     
   end
 end
